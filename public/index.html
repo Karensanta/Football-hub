@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Football Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-ball">⚽</span><span>Football<br>Hub</span></div>
+    <nav>
+      <div class="nav-label">MAIN</div>
+      <a class="nav active" href="#home">⌂ <span>Home</span></a>
+      <a class="nav" href="#matches">◉ <span>Matches</span></a>
+      <a class="nav" href="#countries">🌍 <span>Countries</span></a>
+      <a class="nav" href="#teams">◇ <span>Teams</span></a>
+      <a class="nav" href="#players">♟ <span>Players</span></a>
+      <a class="nav" href="#standings">☷ <span>Standings</span></a>
+      <div class="nav-label">FAVORITES</div>
+      <a class="fav"><img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg">Real Madrid</a>
+      <a class="fav"><img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg">Barcelona</a>
+      <a class="fav"><img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg">Manchester City</a>
+      <a class="fav"><img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg">Liverpool</a>
+      <a class="fav"><img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg">Arsenal</a>
+    </nav>
+    <div class="side-bottom">
+      <button id="themeBtn">☼ <span>Light mode</span></button>
+      <button id="notifyBtn">🔔 <span>Notifications</span></button>
+    </div>
+  </aside>
+
+  <main class="main" id="home">
+    <header class="topbar">
+      <div class="search-wrap">⌕ <input id="globalSearch" placeholder="Search players, teams or countries"></div>
+      <div class="top-right"><span id="clock">--:--</span><span class="user-pill">⚽ Football Fan</span></div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">FOOTBALL HUB • LIVE DATA</p>
+        <h1>Football, all in one place.</h1>
+        <p>Real match data when your server has an API key, plus rich country, team and player pages.</p>
+      </div>
+      <button class="primary" onclick="loadLive()">↻ Refresh live</button>
+    </section>
+
+    <section id="matches" class="section">
+      <div class="section-head">
+        <div><p class="eyebrow">MATCH CENTER</p><h2>Live matches</h2></div>
+        <span id="liveStatus" class="status-pill">Connecting…</span>
+      </div>
+      <div id="liveGrid" class="match-grid"></div>
+      <p id="liveNote" class="small-note"></p>
+    </section>
+
+    <section class="section" id="countries">
+      <div class="section-head"><div><p class="eyebrow">INTERNATIONAL FOOTBALL</p><h2>Explore countries</h2></div></div>
+      <p class="section-sub">Open a country to see its football profile, World Cup record and famous players.</p>
+      <div id="countryGrid" class="country-grid"></div>
+    </section>
+
+    <section class="section" id="teams">
+      <div class="section-head"><div><p class="eyebrow">CLUB FOOTBALL</p><h2>Popular teams</h2></div></div>
+      <div id="teamGrid" class="team-grid"></div>
+    </section>
+
+    <section class="section" id="players">
+      <div class="section-head"><div><p class="eyebrow">PLAYERS</p><h2>Star players</h2></div></div>
+      <div id="playerGrid" class="player-grid"></div>
+    </section>
+
+    <section class="section" id="standings">
+      <div class="section-head"><div><p class="eyebrow">COMPETITIONS</p><h2>Standings</h2></div></div>
+      <div class="standings-card">
+        <div class="standings-row head"><span>#</span><span>Team</span><span>MP</span><span>Pts</span></div>
+        <div id="standingsRows"><div class="empty">Connect an API to load current league tables.</div></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
